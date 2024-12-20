@@ -27,7 +27,7 @@ Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, 
 
 ### Añadir un nuevo patín
 
-- La ruta para añadir un nuevo patín es `http://localhost:número-de-puerto/api/skate`
+- La ruta para añadir un nuevo patín es `http://localhost:número-de-puerto/api/addSkate`
 - Tienes que añadir la marca y el modelo de patín:
 
 ```javascript

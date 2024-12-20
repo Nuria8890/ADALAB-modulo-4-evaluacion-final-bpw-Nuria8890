@@ -40,7 +40,7 @@ async function getDBConnection() {
 
 // Añadir un nuevo patín
 
-server.post("/api/skate", async (req, res) => {
+server.post("/api/addSkate", async (req, res) => {
   const skateData = req.body;
 
   const requiredData = ["brand", "model"];
