@@ -1,7 +1,9 @@
+-- Crear y usar la bbdd
 CREATE DATABASE skateStore;
 
 USE skateStore;
 
+-- Crear tablas y relaciones
 CREATE TABLE skates (
 	idSkate INT AUTO_INCREMENT PRIMARY KEY,
 	brand VARCHAR(45) NOT NULL,
@@ -30,7 +32,7 @@ CREATE TABLE guides_has_wheels (
 	PRIMARY KEY (fk_guide, fk_wheel)
 );
 
-
+-- Insertar datos en las tablas creadas
 INSERT INTO skates (brand, model)
 VALUES
 ("luigino", "velocidad"),
@@ -50,7 +52,6 @@ VALUES
 ("rollerblade", 110, 1),
 ("rollerblade", 80, 2),
 ("wur", 80, 3);
-
 
 INSERT INTO guides_has_wheels (fk_guide, fk_wheel)
 VALUES
