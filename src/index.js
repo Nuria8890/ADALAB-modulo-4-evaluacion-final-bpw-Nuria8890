@@ -130,7 +130,7 @@ server.delete("/api/deleteSkate/:idSkate", async (req, res) => {
   });
 });
 
-// not found error
+// Petición no encontrada
 server.get("*", (req, res) => {
   const notFoundFileRelativePath = "../public/404-not-found.html";
   const notFoundFileAbsolutePath = path.join(
