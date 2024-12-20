@@ -140,9 +140,19 @@ server.put("/api/updateSkate/:idSkate", async (req, res) => {
 server.delete("/api/deleteSkate/:idSkate", async (req, res) => {
   const idSkate = req.params.idSkate;
   const connection = await getDBConnection();
+
+  const guideData = "SELECT * FROM guides WHERE fk_skate = ?";
+  const [resultGuideData] = await connection.query(guideData, [idSkate]);
+  console.log(resultGuideData);
+
+  if (resultGuideData.length !== 0) {
+    const queryFk =
+      "UPDATE guides SET guides.fk_skate = null WHERE guides.fk_skate = ?;";
+    const [resultFk] = await connection.query(queryFk, [idSkate]);
+  }
+
   const query = "DELETE from skates WHERE idSkate = ?;";
   const [result] = await connection.query(query, [idSkate]);
-
   console.log(result);
   res.status(200).json({
     status: "success",
