@@ -109,6 +109,7 @@ Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, 
 ## Eliminar el registro de un patín
 
 - La ruta para eliminar un registro es `http://localhost:número-de-puerto/api/deleteSkate/:idSkate` donde `:idSkate` será el número del id del patín que quieras eliminar
+
 - Te devolverá estos datos:
 
 ```javascript
