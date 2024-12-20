@@ -102,6 +102,14 @@ server.get("/api/skates", async (req, res) => {
     skateWithGuidesAndWheels["guidesAndWheels"] = resultSkate;
     message.push(skateWithGuidesAndWheels);
   }
+  connection.end();
+
+  if (message.length === 0) {
+    return res.status(404).json({
+      status: "error",
+      message: "Actualmente no existen patines",
+    });
+  }
 
   res.status(200).json({
     status: "success",

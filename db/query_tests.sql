@@ -13,7 +13,8 @@ WHERE fk_skate = 1;
 UPDATE skates SET brand = "marca 2", model = "modelo 2" WHERE idSkate = 5;
 
 -- Query de prueba para eliminar un registro de un patín
-DELETE from skates WHERE idSkate = 4;
+DELETE FROM skates AND guides
+WHERE guides.fk_skate = skates.idSkate AND idSkate = 1;
 
 
 
