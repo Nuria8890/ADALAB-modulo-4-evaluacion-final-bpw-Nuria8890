@@ -3,8 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const mysql = require("mysql2/promise");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 
 // Crear el servidor
 const server = express();
@@ -19,9 +17,6 @@ require("dotenv").config();
 // Configurar el servidor para poder usar el motor de plantillas
 server.set("view engine", "ejs");
 
-// Crear clave secreta para los tokens
-const secretKey = process.env.SECRET_KEY;
-
 // Establecer y arrancar el puerto de conexión
 const serverPort = process.env.PORT;
 server.listen(serverPort, () => {
@@ -32,7 +27,7 @@ server.listen(serverPort, () => {
 async function getDBConnection() {
   const connection = await mysql.createConnection({
     host: "localhost",
-    database: "libreria", // CAMBIAR ESTE DATO POR EL NORMBE DE LA BBDD QUE VAYA A UTILIZAR
+    database: "skateStore",
     user: process.env.USER_DATABASE,
     password: process.env.PASSWORD_DATABASE,
   });
