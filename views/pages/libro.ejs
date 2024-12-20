@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Este es el libro que has seleccionado</h1>
+    <h3>Título: <%= titulo %></h3>
+    <p>Fecha de publicación: <%= fecha_publi %></p>
+    <p>Género: <%= genero %></p>
+    <p>Precio: <%= precio %> €</p>
+    <h4>Nombre del autor/a: <%= autor %></h4>
+    <% if(pais_autor !== ""){%>
+    <p>País del autor/a: <%= pais_autor %></p>
+    <%}%>
+    <p>Número de páginas del libro: <%= num_paginas %></p>
+    <p>Número de libros en stock: <%= stock %></p>
+
+    <% if(tipo == 0) { %>
+    <p>Libro digital</p>
+    <% }else { %>
+    <p>Libro físico</p>
+    <% } %> <% if (premios.length !== 0) { %>
+    <p>Premios</p>
+    <ul>
+      <% premios.forEach(function(premio){ %>
+      <li><%= premio.año %>: <%= premio.info %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>
