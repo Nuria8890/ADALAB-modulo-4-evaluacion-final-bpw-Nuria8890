@@ -61,6 +61,44 @@ server.post("/api/skate", async (req, res) => {
   });
 });
 
+// Listar todos los patines
+
+server.get("/api/skates", async (req, res) => {
+  const connection = await getDBConnection();
+  const queryAllSkates = "SELECT * FROM skates;";
+
+  const [resultAllSkates] = await connection.query(queryAllSkates);
+
+  let message = [];
+
+  for (const skate of resultAllSkates) {
+    const querySkate = `
+    SELECT idGuide,
+            guides.brand AS brandGuide,
+            guides.size AS sizeGuide,
+            idWheel,
+            wheels.brand AS brandWheel,
+            wheels.size AS sizeWheel
+    FROM guides
+    INNER JOIN guides_has_wheels
+	    ON guides_has_wheels.fk_guide = guides.idGuide
+    INNER JOIN wheels
+      ON guides_has_wheels.fk_wheel = wheels.idWheel
+    WHERE fk_skate = ?;`;
+
+    const [resultSkate] = await connection.query(querySkate, [skate.idSkate]);
+
+    let skateWithGuidesAndWheels = skate;
+    skateWithGuidesAndWheels["guidesAndWheels"] = resultSkate;
+    message.push(skateWithGuidesAndWheels);
+  }
+
+  res.status(200).json({
+    status: "En proceso",
+    message: message,
+  });
+});
+
 // not found error
 server.get("*", (req, res) => {
   const notFoundFileRelativePath = "../public/404-not-found.html";

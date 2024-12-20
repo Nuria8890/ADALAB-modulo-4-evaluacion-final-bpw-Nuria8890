@@ -26,6 +26,91 @@
 }
 ```
 
+- Te devolverá estos datos, donde `5` es el id del nuevo patín añadido:
+
+```javascript
+{
+    "status": "success",
+    "id": 5
+}
+```
+
+## Listar todos los patines con sus guías y ruedas
+
+- La ruta para ver este listado es `http://localhost:número-de-puerto/api/skates`
+- Te devolverá estos datos:
+
+```javascript
+{
+    "status": "En proceso",
+    "message": [
+        {
+            "idSkate": 1,
+            "brand": "luigino",
+            "model": "velocidad",
+            "guidesAndWheels": [
+                {
+                    "idGuide": 1,
+                    "brandGuide": "fr",
+                    "sizeGuide": 125,
+                    "idWheel": 1,
+                    "brandWheel": "luigino",
+                    "sizeWheel": 110
+                },
+                {
+                    "idGuide": 1,
+                    "brandGuide": "fr",
+                    "sizeGuide": 125,
+                    "idWheel": 2,
+                    "brandWheel": "luigino",
+                    "sizeWheel": 125
+                },
+                {
+                    "idGuide": 1,
+                    "brandGuide": "fr",
+                    "sizeGuide": 125,
+                    "idWheel": 3,
+                    "brandWheel": "rollerblade",
+                    "sizeWheel": 80
+                },
+                {
+                    "idGuide": 1,
+                    "brandGuide": "fr",
+                    "sizeGuide": 125,
+                    "idWheel": 4,
+                    "brandWheel": "powerslide",
+                    "sizeWheel": 72
+                },
+                {
+                    "idGuide": 2,
+                    "brandGuide": "rollerblade",
+                    "sizeGuide": 110,
+                    "idWheel": 1,
+                    "brandWheel": "luigino",
+                    "sizeWheel": 110
+                },
+                {
+                    "idGuide": 2,
+                    "brandGuide": "rollerblade",
+                    "sizeGuide": 110,
+                    "idWheel": 3,
+                    "brandWheel": "rollerblade",
+                    "sizeWheel": 80
+                },
+                {
+                    "idGuide": 2,
+                    "brandGuide": "rollerblade",
+                    "sizeGuide": 110,
+                    "idWheel": 4,
+                    "brandWheel": "powerslide",
+                    "sizeWheel": 72
+                }
+            ]
+        }
+    ]
+}
+```
+
 ---
 
 **Gracias por interesarte en mi trabajo ❤️**
