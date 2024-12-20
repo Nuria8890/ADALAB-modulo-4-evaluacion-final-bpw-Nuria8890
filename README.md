@@ -41,8 +41,9 @@
 - Te devolverá estos datos:
 
 ```javascript
+// Ejemplo
 {
-    "status": "En proceso",
+    "status": "success",
     "message": [
         {
             "idSkate": 1,
@@ -108,6 +109,18 @@
             ]
         }
     ]
+}
+```
+
+## Actualizar los datos de un patín
+
+- La ruta para poder actualizar los datos es `http://localhost:número-de-puerto/api/updateSkate/:idSkate` donde `:idSkate` será el número del id del patín que quieras actualizar
+- Te devolverá estos datos:
+
+```javascript
+{
+    "status": "success",
+    "message": "Update skate"
 }
 ```
 

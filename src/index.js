@@ -38,8 +38,6 @@ async function getDBConnection() {
   return connection;
 }
 
-// --------------------------------------------------------------------------------------------------------------------------------
-
 // Añadir un nuevo patín
 
 server.post("/api/skate", async (req, res) => {
@@ -94,8 +92,26 @@ server.get("/api/skates", async (req, res) => {
   }
 
   res.status(200).json({
-    status: "En proceso",
+    status: "success",
     message: message,
+  });
+});
+
+// Actualizar los datos de un patín
+
+server.put("/api/updateSkate/:idSkate", async (req, res) => {
+  const idSkate = req.params.idSkate;
+  const { brand, model } = req.body;
+
+  const connection = await getDBConnection();
+  const query = "UPDATE skates SET brand = ?, model = ? WHERE idSkate = ?;";
+
+  const [result] = await connection.query(query, [brand, model, idSkate]);
+  connection.end();
+
+  res.status(200).json({
+    status: "success",
+    message: "Update skate",
   });
 });
 
