@@ -123,18 +123,6 @@ server.put("/api/updateSkate/:idSkate", async (req, res) => {
   const idSkate = req.params.idSkate;
   const { brand, model } = req.body;
 
-  const requiredData = ["brand", "model"];
-
-  for (const data of requiredData) {
-    if (!(data in skateData) || skateData[data] === "") {
-      return res.status(400).json({
-        status: "error",
-        message:
-          "Asegúrate de que has introducido todos los datos (brand y model)",
-      });
-    }
-  }
-
   const connection = await getDBConnection();
   const query = "UPDATE skates SET brand = ?, model = ? WHERE idSkate = ?;";
 
