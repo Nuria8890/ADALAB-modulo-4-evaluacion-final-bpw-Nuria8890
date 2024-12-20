@@ -115,6 +115,21 @@ server.put("/api/updateSkate/:idSkate", async (req, res) => {
   });
 });
 
+// Eliminar el registro de un patín
+
+server.delete("/api/deleteSkate/:idSkate", async (req, res) => {
+  const idSkate = req.params.idSkate;
+  const connection = await getDBConnection();
+  const query = "DELETE from skates WHERE idSkate = ?;";
+  const [result] = await connection.query(query, [idSkate]);
+
+  console.log(result);
+  res.status(200).json({
+    status: "success",
+    message: "Delete skate",
+  });
+});
+
 // not found error
 server.get("*", (req, res) => {
   const notFoundFileRelativePath = "../public/404-not-found.html";
