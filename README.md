@@ -1,17 +1,29 @@
 **Hola!!**
 
-- Node.js y Express: Para manejar la lógica del servidor y las API.
-- MySQL: Base de datos para almacenamiento persistente.
+He creado una base de datos de patines, donde puedes ver las guías que puede utilizar cada patín y las ruedas que corresponden a cada guía.
 
-1. Clónate el repositorio `git clone git@github.com:Adalab/modulo-4-evaluacion-final-bpw-Nuria8890.git`
-2. Instala las dependencias locales ejecutando en la terminal `npm install`
-3. Copia el código de la carpeta db en workbench o similar
-4. Tienes que tener instalado [Node JS](https://nodejs.org/) con una versión superior a la 14
-5. Crea un archivo `.env` en la raíz del proyecto con las variables necesarias (estas se encuentran en el archivo `.env_example`).
-6. Inicia el servidor de desarrollo `npm run dev`
-7. Utiliza Postman o similiar para ejecutar los endpoints:
+**Te explico un poco el concepto de esta base de datos**:
 
-## Endpoints que puedes ejecutar
+Un patín puede utilizar varias guías, sin embargo cada guía solo sirve para un modelo determinado de patín.
+
+Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, por lo que una talla de rueda puede ser utilizada por muchas guías.
+
+## Para crear esta API he utilizado:
+
+- **Node.js**: para el manejo de backend.
+- **Express**: para el servidor.
+- **MySQL**: para crear la base de datos.
+
+## Pasos a seguir para utilizar la API
+
+1. **Clónate** el repositorio `git clone git@github.com:Adalab/modulo-4-evaluacion-final-bpw-Nuria8890.git`.
+2. Instala las **dependencias locales** ejecutando en la terminal `npm install`.
+3. Copia el código de la carpeta `db` en workbench o similar.
+4. Crea un archivo `.env` en la raíz del proyecto con las variables necesarias (estas se encuentran en el archivo `.env_example`).
+5. Inicia el servidor de desarrollo ejecutando `npm run dev`.
+6. Utiliza Postman o similiar para ejecutar los endpoints.
+
+## Acciones que puedes realizar en esta base de datos (endpoints):
 
 ### Añadir un nuevo patín
 
@@ -29,6 +41,7 @@
 - Te devolverá estos datos, donde `5` es el id del nuevo patín añadido:
 
 ```javascript
+// Ejemplo
 {
     "status": "success",
     "id": 5
@@ -45,63 +58,23 @@
 {
     "status": "success",
     "message": [
-        {
-            "idSkate": 1,
-            "brand": "luigino",
-            "model": "velocidad",
+         {
+            "idSkate": 3,
+            "brand": "powerslide",
+            "model": "slalom",
             "guidesAndWheels": [
                 {
-                    "idGuide": 1,
-                    "brandGuide": "fr",
-                    "sizeGuide": 125,
-                    "idWheel": 1,
-                    "brandWheel": "luigino",
-                    "sizeWheel": 110
-                },
-                {
-                    "idGuide": 1,
-                    "brandGuide": "fr",
-                    "sizeGuide": 125,
-                    "idWheel": 2,
-                    "brandWheel": "luigino",
-                    "sizeWheel": 125
-                },
-                {
-                    "idGuide": 1,
-                    "brandGuide": "fr",
-                    "sizeGuide": 125,
+                    "idGuide": 4,
+                    "brandGuide": "wur",
+                    "sizeGuide": 80,
                     "idWheel": 3,
                     "brandWheel": "rollerblade",
                     "sizeWheel": 80
                 },
                 {
-                    "idGuide": 1,
-                    "brandGuide": "fr",
-                    "sizeGuide": 125,
-                    "idWheel": 4,
-                    "brandWheel": "powerslide",
-                    "sizeWheel": 72
-                },
-                {
-                    "idGuide": 2,
-                    "brandGuide": "rollerblade",
-                    "sizeGuide": 110,
-                    "idWheel": 1,
-                    "brandWheel": "luigino",
-                    "sizeWheel": 110
-                },
-                {
-                    "idGuide": 2,
-                    "brandGuide": "rollerblade",
-                    "sizeGuide": 110,
-                    "idWheel": 3,
-                    "brandWheel": "rollerblade",
-                    "sizeWheel": 80
-                },
-                {
-                    "idGuide": 2,
-                    "brandGuide": "rollerblade",
-                    "sizeGuide": 110,
+                    "idGuide": 4,
+                    "brandGuide": "wur",
+                    "sizeGuide": 80,
                     "idWheel": 4,
                     "brandWheel": "powerslide",
                     "sizeWheel": 72
