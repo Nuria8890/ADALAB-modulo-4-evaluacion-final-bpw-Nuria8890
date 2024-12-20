@@ -40,6 +40,27 @@ async function getDBConnection() {
 
 // --------------------------------------------------------------------------------------------------------------------------------
 
+// Añadir un nuevo patín
+
+server.post("/api/skate", async (req, res) => {
+  const connection = await getDBConnection();
+  const skateData = req.body;
+
+  const query = "INSERT INTO skates (brand, model) VALUES(?, ?);";
+
+  const [result] = await connection.query(query, [
+    skateData.brand,
+    skateData.model,
+  ]);
+
+  connection.end();
+
+  res.status(201).json({
+    status: "success",
+    id: result.insertId,
+  });
+});
+
 // not found error
 server.get("*", (req, res) => {
   const notFoundFileRelativePath = "../public/404-not-found.html";

@@ -11,6 +11,21 @@
 6. Inicia el servidor de desarrollo `npm run dev`
 7. Utiliza Postman o similiar para ejecutar los endpoints:
 
+## Endpoints que puedes ejecutar
+
+### Añadir un nuevo patín
+
+- La ruta para añadir un nuevo patín es `http://localhost:número-de-puerto/api/skate`
+- Tienes que añadir la marca y el modelo de patín:
+
+```javascript
+// Ejemplo
+{
+    "brand": "marca-1",
+    "model": "modelo-1"
+}
+```
+
 ---
 
 **Gracias por interesarte en mi trabajo ❤️**
