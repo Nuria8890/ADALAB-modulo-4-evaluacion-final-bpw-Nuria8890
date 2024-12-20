@@ -143,7 +143,16 @@ server.delete("/api/deleteSkate/:idSkate", async (req, res) => {
 
   const guideData = "SELECT * FROM guides WHERE fk_skate = ?";
   const [resultGuideData] = await connection.query(guideData, [idSkate]);
-  console.log(resultGuideData);
+
+  const skateData = "SELECT * FROM skates WHERE idSkate = ?";
+  const [resultskateData] = await connection.query(skateData, [idSkate]);
+
+  if (resultskateData.length === 0) {
+    return res.status(404).json({
+      status: "error",
+      message: "No existe ningún patín con ese id",
+    });
+  }
 
   if (resultGuideData.length !== 0) {
     const queryFk =
