@@ -97,12 +97,21 @@ Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, 
 ## Actualizar los datos de un patín
 
 - La ruta para poder actualizar los datos es `http://localhost:número-de-puerto/api/updateSkate/:idSkate` donde `:idSkate` será el número del id del patín que quieras actualizar
-- Te devolverá estos datos:
+- Si has rellenado los datos, te devolverá:
 
 ```javascript
 {
     "status": "success",
     "message": "Update skate"
+}
+```
+
+- Si no rellenas los datos, te devolverá:
+
+```javascript
+{
+    "status": "error",
+    "message": "Asegúrate de que has introducido todos los datos (brand y model)"
 }
 ```
 
