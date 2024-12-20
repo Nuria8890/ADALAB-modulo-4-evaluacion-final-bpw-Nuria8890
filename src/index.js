@@ -41,9 +41,21 @@ async function getDBConnection() {
 // Añadir un nuevo patín
 
 server.post("/api/skate", async (req, res) => {
-  const connection = await getDBConnection();
   const skateData = req.body;
 
+  const requiredData = ["brand", "model"];
+
+  for (const data of requiredData) {
+    if (!(data in skateData) || skateData[data] === "") {
+      return res.status(400).json({
+        status: "error",
+        message:
+          "Asegúrate de que has introducido todos los datos (brand y model)",
+      });
+    }
+  }
+
+  const connection = await getDBConnection();
   const query = "INSERT INTO skates (brand, model) VALUES(?, ?);";
 
   const [result] = await connection.query(query, [

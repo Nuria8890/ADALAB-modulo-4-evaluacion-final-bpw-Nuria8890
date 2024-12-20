@@ -38,13 +38,22 @@ Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, 
 }
 ```
 
-- Te devolverá estos datos, donde `5` es el id del nuevo patín añadido:
+- Si has rellenado los datos, te devolverá:
 
 ```javascript
 // Ejemplo
 {
     "status": "success",
-    "id": 5
+    "id": 5 // identificador del nuevo patín añadido
+}
+```
+
+- Si no rellenas los datos, te devolverá:
+
+```javascript
+{
+    "status": "error",
+    "message": "Asegúrate de que has introducido todos los datos (brand y model)"
 }
 ```
 
