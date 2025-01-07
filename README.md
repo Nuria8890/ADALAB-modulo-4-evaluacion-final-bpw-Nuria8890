@@ -16,11 +16,20 @@ Las guías, en función de su tamaño, pueden utilizar muchas tallas de ruedas, 
 
 ## Pasos a seguir para utilizar la API
 
-1. **Clónate** el repositorio `git clone git@github.com:Adalab/modulo-4-evaluacion-final-bpw-Nuria8890.git`.
-2. Instala las **dependencias locales** ejecutando en la terminal `npm install`.
+1. **Clónate** el repositorio
+   ```bash
+   git clone git@github.com:Nuria8890/ADALAB-modulo-4-evaluacion-final-bpw-Nuria8890.git
+   ```
+2. Instala las **dependencias locales** ejecutando en la terminal
+   ```bash
+   npm install
+   ```
 3. Copia el código de la carpeta `db` en workbench o similar.
 4. Crea un archivo `.env` en la raíz del proyecto con las variables necesarias (estas se encuentran en el archivo `.env_example`).
-5. Inicia el servidor de desarrollo ejecutando `npm run dev`.
+5. Inicia el servidor de desarrollo ejecutando
+    ```bash
+   npm run dev
+    ```
 6. Utiliza Postman o similiar para ejecutar los endpoints.
 
 ## Acciones que puedes realizar en esta base de datos (endpoints):
